@@ -2,10 +2,13 @@ const { Router } = require('express');
 
 const router = Router();
 
-const { loginUsuario, index } = require('../controllers/usuario.controller');
+const { registrarUsuario, loginUsuario, index, yo } = require('../controllers/usuario.controller');
+const verificarToken = require('../controllers/verificarToken');
 
 
 router.get('/', index);
-router.get('/usuario/login', loginUsuario);
+router.get('/yo', verificarToken, yo);
+router.post('/usuario/add', registrarUsuario);
+router.post('/usuario/login', loginUsuario);
 
 module.exports = router;

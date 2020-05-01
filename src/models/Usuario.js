@@ -35,7 +35,7 @@ UsuarioSchema.methods.encriptarPassword = async password => {
     return await bcrypt.hash(password, solt);
 };
 
-UsuarioSchema.methods.matchPassword = async function(password) {
+UsuarioSchema.methods.validarPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
 };
 
